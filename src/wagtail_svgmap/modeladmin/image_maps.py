@@ -3,14 +3,9 @@ from operator import attrgetter
 from django.shortcuts import redirect
 from django.utils.http import urlencode
 
-try:
-    from wagtail.contrib.modeladmin.options import ModelAdmin
-    from wagtail.contrib.modeladmin.views import CreateView, EditView
-    from wagtail.admin import messages
-except ImportError:
-    from wagtail.contrib.modeladmin.options import ModelAdmin
-    from wagtail.contrib.modeladmin.views import CreateView, EditView
-    from wagtail.wagtailadmin import messages
+from wagtail_modeladmin.options import ModelAdmin
+from wagtail_modeladmin.views import CreateView, EditView
+from wagtail.admin import messages
 from wagtail_svgmap.models import ImageMap, Region
 
 

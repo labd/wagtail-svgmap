@@ -1,5 +1,0 @@
-pip-tools
-pytest
-pytest-cov
-pytest-django
-beautifulsoup4

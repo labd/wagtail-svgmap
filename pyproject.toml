@@ -1,0 +1,42 @@
+[project]
+name = "wagtail-svgmap"
+dynamic = ["version"]
+description = "Image map functionality for Wagtail through inline SVGs"
+authors = [
+    {name = "Paul J Stevens", email = "p.stevens@labdigital.nl"},
+]
+dependencies = [
+    "wagtail>=5",
+    "wagtail-modeladmin>=2.0.0",
+]
+requires-python = ">=3.10"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["setuptools",  "wheel", "setuptools_scm[toml]"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+version_scheme = "guess-next-dev"
+local_scheme = "no-local-version"
+
+[tool.isort]
+profile = 'black'
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "wsm_test.settings"
+testpaths = ["wsm_test/", "src/wagtail_svgmap/tests/"]
+
+[tool.pdm]
+distribution = true
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "pytest>=8.2.0",
+    "pytest-cov>=5.0.0",
+    "beautifulsoup4>=4.12.3",
+    "ruff>=0.4.4",
+    "black>=24.4.2",
+    "pytest-django>=4.8.0",
+]

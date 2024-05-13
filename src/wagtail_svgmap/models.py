@@ -1,21 +1,14 @@
-from __future__ import unicode_literals
-
 from contextlib import closing
 
 from django.db import models
-from django.utils.encoding import python_2_unicode_compatible
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
-try:
-    from wagtail.admin.edit_handlers import FieldPanel
-except ImportError:
-    from wagtail.wagtailadmin.edit_handlers import FieldPanel
+from wagtail.admin.panels import FieldPanel
 from wagtail_svgmap import log
 from wagtail_svgmap.mixins import LinkFields
 from wagtail_svgmap.svg import find_ids, fix_dimensions, get_dimensions, Link, serialize_svg, wrap_elements_in_links
 
 
-@python_2_unicode_compatible
 class ImageMap(models.Model):
     """
     The main image map model. Caches the element IDs and prerendered linked SVG.
@@ -161,7 +154,6 @@ class ImageMap(models.Model):
         return self.title
 
 
-@python_2_unicode_compatible
 class Region(LinkFields, models.Model):
     """
     Child model to specify the link target for a given element in a given image map.

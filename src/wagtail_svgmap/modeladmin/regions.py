@@ -1,12 +1,9 @@
 from django.forms.widgets import HiddenInput, Select
 from django.shortcuts import redirect
 
-from wagtail.contrib.modeladmin.options import ModelAdmin
-from wagtail.contrib.modeladmin.views import CreateView, DeleteView, EditView
-try:
-    from wagtail.admin import messages
-except ImportError:
-    from wagtail.wagtailadmin import messages
+from wagtail_modeladmin.options import ModelAdmin
+from wagtail_modeladmin.views import CreateView, DeleteView, EditView
+from wagtail.admin import messages
 from wagtail_svgmap.models import ImageMap, Region
 
 from .image_maps import ImageMapModelAdmin

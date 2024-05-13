@@ -2,14 +2,12 @@ import pytest
 from django.contrib.contenttypes.models import ContentType
 from django.core.files.base import ContentFile
 from django.core.files.uploadedfile import SimpleUploadedFile
+from wagtail.models.i18n import Locale
+from django.conf import settings
 from django.utils.crypto import get_random_string
 
-try:
-    from wagtail.core.models import Collection, Page, Site
-    from wagtail.documents.models import Document
-except ImportError:
-    from wagtail.wagtailcore.models import Collection, Page, Site
-    from wagtail.wagtaildocs.models import Document
+from wagtail.models import Collection, Page, Site
+from wagtail.documents.models import Document
 
 from wagtail_svgmap.models import ImageMap
 from wagtail_svgmap.tests.utils import EXAMPLE_SVG_DATA
@@ -22,6 +20,7 @@ def root_page():
     :return: Root page
     :rtype: wagtail.wagtailcore.models.Page
     """
+    locale, __ = Locale.objects.get_or_create(language_code=settings.LANGUAGE_CODE)
     try:
         page = Page.objects.get(slug="root", depth=1)
     except Page.DoesNotExist:  # pragma: no cover
@@ -33,6 +32,7 @@ def root_page():
             depth=1,
             numchild=1,
             url_path='/',
+            locale=locale,
         )
 
     for child in page.get_children():  # pragma: no cover

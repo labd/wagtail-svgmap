@@ -1,15 +1,10 @@
-from __future__ import absolute_import, unicode_literals
-
 from django.conf import settings
 from django.forms import Select
 from django.forms.utils import flatatt
 from django.utils.html import escape, mark_safe
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
-try:
-    from wagtail.core import blocks
-except ImportError:
-    from wagtail.wagtailcore import blocks
+from wagtail import blocks
 
 from wagtail_svgmap.models import ImageMap
 

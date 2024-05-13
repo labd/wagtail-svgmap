@@ -2,10 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import migrations
-try:
-    from wagtail.core.models import Page
-except ImportError:
-    from wagtail.wagtailcore.models import Page
+from wagtail.models import Page
 
 
 def create_homepage(apps, schema_editor):

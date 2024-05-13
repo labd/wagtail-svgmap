@@ -4,10 +4,7 @@ from __future__ import unicode_literals
 
 from django.db import migrations, models
 import django.db.models.deletion
-try:
-    from wagtail.core import blocks, fields
-except ImportError:
-    from wagtail.wagtailcore import blocks, fields
+from wagtail import blocks, fields
 
 import wagtail_svgmap.blocks
 
